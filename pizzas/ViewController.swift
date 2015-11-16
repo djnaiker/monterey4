@@ -1,8 +1,9 @@
+
 import UIKit
 
 class ViewController: UIViewController {
     
-    var tamanos : [String] = ["Pequeña","Mediana","Grande"]
+    var tamanos : [String] = ["Chica","Mediana","Grande"]
     var tamanoElegido : String = ""
 
     @IBOutlet weak var tamanosPizza: UIPickerView!
@@ -23,7 +24,7 @@ class ViewController: UIViewController {
             sigVista.tamanoElegido = tamanoElegido
         }
         else {
-            sigVista.tamanoElegido = "Pequeña"
+            sigVista.tamanoElegido = "Chica"
         }
     }
 

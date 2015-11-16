@@ -1,4 +1,3 @@
-
 import UIKit
 
 class IngredientesController: UIViewController {
@@ -34,100 +33,100 @@ class IngredientesController: UIViewController {
     
     func inicializaContador(){
         ingredientes = 0
-        if (pepperoni.on) {
+        if pepperoni.on {
             ingredientes++
         }
-        if (jamon.on) {
+        if jamon.on {
             ingredientes++
         }
-        if (pavo.on) {
+        if pavo.on {
             ingredientes++
         }
-        if (salchicha.on) {
+        if salchicha.on {
             ingredientes++
         }
-        if (anchoas.on) {
+        if anchoas.on {
             ingredientes++
         }
-        if (aceitunas.on) {
+        if aceitunas.on {
             ingredientes++
         }
-        if (cebolla.on) {
+        if cebolla.on {
             ingredientes++
         }
-        if (pimiento.on) {
+        if pimiento.on {
             ingredientes++
         }
-        if (pina.on) {
+        if pina.on {
             ingredientes++
         }
-        if (champinon.on) {
+        if champinon.on {
             ingredientes++
         }
     }
     
     func habilitaSwitches(){
-        if (!pepperoni.enabled) {
+        if !pepperoni.enabled {
             pepperoni.enabled = true
         }
-        if (!jamon.enabled) {
+        if !jamon.enabled {
             jamon.enabled = true
         }
-        if (!pavo.enabled) {
+        if !pavo.enabled {
             pavo.enabled = true
         }
-        if (!salchicha.enabled) {
+        if !salchicha.enabled {
             salchicha.enabled = true
         }
-        if (!anchoas.enabled) {
+        if !anchoas.enabled {
             anchoas.enabled = true
         }
-        if (!aceitunas.enabled) {
+        if !aceitunas.enabled {
             aceitunas.enabled = true
         }
-        if (!cebolla.enabled) {
+        if !cebolla.enabled {
             cebolla.enabled = true
         }
-        if (!pimiento.enabled) {
+        if !pimiento.enabled {
             pimiento.enabled = true
         }
-        if (!pina.enabled) {
+        if !pina.enabled {
             pina.enabled = true
         }
-        if (!champinon.enabled) {
+        if !champinon.enabled {
             champinon.enabled = true
         }
     }
     
     func inhabilitaSwitches(){
-        if (!pepperoni.on) {
+        if !pepperoni.on {
             pepperoni.enabled = false
         }
-        if (!jamon.on) {
+        if !jamon.on {
             jamon.enabled = false
         }
-        if (!pavo.on) {
+        if !pavo.on {
             pavo.enabled = false
         }
-        if (!salchicha.on) {
+        if !salchicha.on {
             salchicha.enabled = false
         }
-        if (!anchoas.on) {
+        if !anchoas.on {
             anchoas.enabled = false
         }
-        if (!aceitunas.on) {
+        if !aceitunas.on {
             aceitunas.enabled = false
         }
-        if (!cebolla.on) {
+        if !cebolla.on {
             cebolla.enabled = false
         }
-        if (!pimiento.on) {
+        if !pimiento.on {
             pimiento.enabled = false
         }
-        if (!pina.on) {
+        if !pina.on {
             pina.enabled = false
         }
-        if (!champinon.on) {
+        if !champinon.on {
             champinon.enabled = false
         }
     }
@@ -303,4 +302,47 @@ class IngredientesController: UIViewController {
     }
     */
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let sigVista=segue.destinationViewController as! ConfirmacionController
+        sigVista.tamanoElegido = tamanoElegido
+        sigVista.masaElegida = masaElegida
+        sigVista.quesoElegido = "Mozzarela"
+        sigVista.ingredientes = ingredientes
+        sigVista.ingredientesElegidos = ingredientesElegidos()
+    }
+    
+    func ingredientesElegidos() -> String {
+        var misIngredientes : String = ""
+        if pepperoni.on {
+            misIngredientes += "Pepperoni\n"
+        }
+        if jamon.on {
+            misIngredientes += "Jamón\n"
+        }
+        if pavo.on {
+            misIngredientes += "Pavo\n"
+        }
+        if salchicha.on {
+            misIngredientes += "Salchicha\n"
+        }
+        if anchoas.on {
+            misIngredientes += "Anchoas\n"
+        }
+        if aceitunas.on {
+            misIngredientes += "Aceitunas\n"
+        }
+        if cebolla.on {
+            misIngredientes += "Cebolla\n"
+        }
+        if pimiento.on {
+            misIngredientes += "Pimiento;\n"
+        }
+        if pina.on {
+            misIngredientes += "Piña\n"
+        }
+        if champinon.on {
+            misIngredientes += "Champiñón\n"
+        }
+        return misIngredientes
+    }
 }
